@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+    xmlns:lnf="urn:x-lexisnexis:conversion:global:functions:1"
+    xmlns:comm="http://www.lexis-nexis.com/glp/comm"
+    xmlns:pubfm="http://www.lexisnexis.com/xmlschemas/content/shared/publication-front-matter/1/"
+    xmlns:ref="http://www.lexisnexis.com/xmlschemas/content/shared/reference/1/"
+    stylesheet="UK15PG_Rosetta_COMMENTARYDOC-to-LxAdv_seclaw.xsl">
+    <x:scenario
+        label="Scenario for testing template with match 'comm:info">
+        <x:context>
+            <comm:info>
+                <contrib contribtype="author">Produced in partnership with <org><remotelink hrefclass="http"
+                    href="lexisnexis.co.uk/en-uk/practice-areas/ipit-experts.page" newwindow="YES"
+                    >Taylor Wessing LLP</remotelink></org></contrib>
+            </comm:info>
+            
+        </x:context>
+        <x:expect label="test pubfm">
+            <pubfm:pubfm xmlns:pkg="http://expath.org/ns/pkg"
+                xmlns:impl="urn:x-xspec:compile:xslt:impl"
+                xmlns:lnf="urn:x-lexisnexis:conversion:global:functions:1"
+                xmlns:comm="http://www.lexis-nexis.com/glp/comm"
+                xmlns:pubfm="http://www.lexisnexis.com/xmlschemas/content/shared/publication-front-matter/1/"
+                xmlns:ref="http://www.lexisnexis.com/xmlschemas/content/shared/reference/1/"
+                pubfmtype="contributor">
+                <byline xmlns="http://www.lexisnexis.com/xmlschemas/content/shared/base/1/">Produced in partnership with <ref:lnlink service="URL">
+                    <ref:marker>Taylor Wessing LLP</ref:marker>
+                    <ref:locator>
+                        <ref:locator-key>
+                            <ref:key-name name="URL" />
+                            <ref:key-value value="http://lexisnexis.co.uk/en-uk/practice-areas/ipit-experts.page" />
+                        </ref:locator-key>
+                    </ref:locator>
+                </ref:lnlink>
+                </byline>
+            </pubfm:pubfm>
+        </x:expect>
+    </x:scenario>
+
+   </x:description>
